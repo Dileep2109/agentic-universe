@@ -1,6 +1,6 @@
 # Outcome-First Agent Loop — Submission
 
-**Name:** smdil · **Date:** 2026-11-10 · **Hours actually spent (be honest):** not tracked across the phased sessions · **Language / storage:** Python 3, one SQLite file per scenario (WAL)
+**Name:** SM Dileep · **Date:** 2026-11-10 · **Hours actually spent (be honest):** not tracked across the phased sessions · **Language / storage:** Python 3, one SQLite file per scenario (WAL)
 
 ---
 
@@ -148,7 +148,7 @@ After a write, verification compares caller id, welcome, and voice weights withi
 
 Post-change monitoring uses the workflow objective. Engagement is engaged/connected. Pickup is connected/dials. The guardrail uses that workflow's maximum drop. Business outcome is not scored from call rows. A confirmed primary drop or guardrail breach goes back through the same policy engine. A supervisor edit is left in place.
 
-Impact score is `min(1, abs(observed_rate - baseline_rate))` when both rates and a positive sample exist. Otherwise it is 0 and the effect kind is `unverified`. Affected leads is the dial count on the compared caller ids, an integer. The dry run records the observed difference and an explicit null expected effect. A supervisor edit sets the proposal to failed and writes `supervisor_modification_detected` once for that config version. The experiment module cancels a stored design on the same kind of edit. Neither path writes the old config back.
+Impact score is `min(1, abs(observed_rate - baseline_rate))` when both rates and a positive sample exist. Otherwise it is 0 and the effect kind is `unverified`. Affected calls/dials is the dial count on the compared caller ids, an integer. The dry run records the observed difference and an explicit null expected effect. A supervisor edit sets the proposal to failed and writes `supervisor_modification_detected` once for that config version. The experiment module cancels a stored design on the same kind of edit. Neither path writes the old config back.
 
 Production thresholds, unchanged: alpha 0.05, minimum absolute gap 0.02, pickup floor 800 dials, engagement floor 400 connected, business-outcome floor 400 leads, confidence 0.95, guardrail confidence 0.90 so a guardrail test uses alpha 0.10.
 
