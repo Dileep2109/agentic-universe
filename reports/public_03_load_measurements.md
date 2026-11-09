@@ -8,11 +8,11 @@ Kabir Menon’s platform note asks the controller to ingest and decide on one si
 
 ## Command and isolation
 
-- Simulator: `py -3 -m sim serve --scenario scenarios/public_03_load.yaml --run-dir C:\Users\smdil\AppData\Local\au-grade\public_03_run`
-- Controller: `py -3 -m controller --url http://127.0.0.1:53123 --state-dir C:\Users\smdil\AppData\Local\au-grade\public_03_state`
-- Database: `C:\Users\smdil\AppData\Local\au-grade\public_03_state\public_03_load.sqlite`
-- Logs: `C:\Users\smdil\AppData\Local\au-grade\public_03_sim.log`, `public_03_controller.log`
-- Runner: `C:\Users\smdil\AppData\Local\au-grade\run_public_03.py` (exit 3, time budget)
+- Simulator: `py -3 -m sim serve --scenario scenarios/public_03_load.yaml`, with the run directory on local disk outside this repository
+- Controller: `py -3 -m controller --url http://127.0.0.1:53123`, with the state directory on local disk outside this repository
+- Database: `public_03_load.sqlite` in that local state directory
+- Logs: the simulator log and the controller log, kept beside that local state directory
+- Runner: a local runner script outside this repository (exit 3, time budget)
 
 `reports/public_01.md`, `reports/public_02.md`, and the public_01 / public_02 logs and databases were not modified. No other simulator or controller was running. The controller used only the documented HTTP API.
 
